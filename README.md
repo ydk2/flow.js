@@ -1,16 +1,16 @@
 # flow.js
 Ajax asynchronic request with CORS support
 
-
->	Change url to yours and try buttons click
->	All requests is asynchronic sync is not supported
-> Native Javascript no external libriares
+* All requests is asynchronic sync is not supported
+* Native Javascript no external libriares
 
 ### Work on all modern browsers even IE9+
   
 > I'am homeless developer and if you like my work you can give lite support [HERE](http://ydk2.tk/en/#donate)  
 
 ## Sample 
+
+>Change url to yours and try buttons click
  
 ~~~JS
         function get() {
