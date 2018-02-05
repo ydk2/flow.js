@@ -4,9 +4,7 @@ Ajax asynchronic request with CORS support
 * All requests is asynchronic sync is not supported
 * Native Javascript no external libriares
 
-### Work on all modern browsers even IE9+
-  
-> I'am homeless developer and if you like my work you can give lite support [HERE](http://ydk2.tk/en/#donate)  
+### Work on all modern browsers even IE9+ 
 
 ## Sample 
 
@@ -127,3 +125,6 @@ Some like that below
         }
 		
 ~~~
+
+### Support
+> I'am homeless developer and if you like my work you can give lite support [HERE](http://ydk2.tk/en/#donate) 
