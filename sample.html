@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<script src="flow.min.js"></script>
+    <title>Demo Requests</title>
+</head>
+
+<body>
+    <div id="test">
+		Change url to yours and try buttons click
+		All requests is asynchronic
+    </div>
+
+    <button type="button" class="btn btn-default" onclick="get();">ajax get data</button>
+	<button type="button" class="btn btn-default" onclick="post();">ajax post data</button>
+	<br>
+    <button type="button" class="btn btn-default" onclick="corsget();">CORS get data</button>
+    <button type="button" class="btn btn-default" onclick="corspost();">CORS post data</button>
+    <script>
+        function get() {
+
+            var values = {
+                method: 'GET',
+                url: "http://someuri?test=test_data",
+                timeout: 2000
+            };
+            var _get = new flow(values)
+                .ajax().then(function(content, stat, xhr) {
+                    console.log(this.timer);
+                    console.log(content);
+                }).reject(function(e, stat, xhr) {
+                    console.log(this.timer);
+                    console.log(stat);
+                });
+        };
+
+        function post() {
+
+            var values = {
+                method: 'POST',
+                data: {
+                    test_data: "test_data"
+                },
+                url: "http://someuri",
+                timeout: 2000
+            };
+            var _post = new flow(values)
+                .ajax().then(function(content, stat, xhr) {
+                    console.log(this.timer);
+                    console.log(content);
+                }).reject(function(e, stat, xhr) {
+                    console.log(this.timer);
+                    console.log(stat);
+                });
+        };
+
+        function corsget() {
+
+            var values = {
+                method: 'GET',
+                url: "http://someuri?test=test_data",
+                timeout: 2000
+            };
+            var _get = new flow(values)
+                .cors().then(function(content, stat, xhr) {
+                    console.log(this.timer);
+                    console.log(content);
+                }).reject(function(e, stat, xhr) {
+                    console.log(this.timer);
+                    console.log(stat);
+                });
+        };
+
+        function corspost() {
+
+            var values = {
+                method: 'POST',
+                data: {
+                    test_data: "test_data"
+                },
+                url: "http://someuri",
+                timeout: 2000
+            };
+            var _post = new flow(values)
+                .cors().then(function(content, stat, xhr) {
+                    console.log(this.timer);
+                    console.log(content);
+                }).reject(function(e, stat, xhr) {
+                    console.log(this.timer);
+                    console.log(stat);
+                });
+        };
+    </script>
+</body>
+
+</html>
