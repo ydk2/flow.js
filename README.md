@@ -87,3 +87,43 @@ Ajax asynchronic request with CORS support
                 });
         };
 ~~~
+
+### For working CORS you should add valid headers
+
+Some like that below
+
+> PHP sample
+
+~~~PHP
+
+	function Cors()
+	{
+		$request_headers = getallheaders();
+		$origin = $request_headers['Origin'];
+		header("Access-Control-Allow-Origin: $origin");
+		header("Access-Control-Allow-Credentials: true");
+		header("Access-Control-Max-Age: 1000");
+		header("Access-Control-Allow-Headers: Custom, X-Requested-With, Content-Type, Origin, Cache-Control, Pragma, Authorization, Accept, Accept-Encoding");
+		header("Access-Control-Allow-Methods: PUT, POST, GET, OPTIONS, DELETE");
+	}
+
+~~~
+
+> C# sample
+
+~~~C#
+
+        public void Cors(ref HttpListenerContext context){
+            
+            string _origin = context.Request.Headers["Origin"];
+            if(_origin == null){
+                _origin = "*";
+            }
+            context.Response.AppendHeader("Access-Control-Allow-Origin", _origin);
+            context.Response.AppendHeader("Access-Control-Allow-Credentials", "true");
+            context.Response.AppendHeader("Access-Control-Max-Age", "1000");
+            context.Response.AppendHeader("Access-Control-Allow-Headers", "Custom, X-Requested-With, Content-Type, Origin, Cache-Control, Pragma, Authorization, Accept, Accept-Encoding");
+            context.Response.AppendHeader("Access-Control-Allow-Methods", "PUT, POST, GET, OPTIONS, DELETE");
+        }
+		
+~~~
